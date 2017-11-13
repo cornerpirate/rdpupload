@@ -49,3 +49,4 @@ Pretty simple here clone the repo:
 git clone https://github.com/cornerpirate/rdpupload.git
 ```
 
+As you already have the pre-requisites you are now all set to get this done.
