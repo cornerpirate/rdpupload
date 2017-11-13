@@ -14,7 +14,7 @@ While 3) is happening you cannot use your mouse or keyboard. The data rate is lo
 
 ## Usage Example
 
-[Usage Example](https://www.youtube.com/watch?v=PPhtlonrrC8)
+[![Usage Example](https://www.youtube.com/watch?v=PPhtlonrrC8)](https://i.ytimg.com/vi/PPhtlonrrC8/0.jpg)
 
 
 ## Install Pre-Requisites
