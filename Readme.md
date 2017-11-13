@@ -12,6 +12,9 @@ This works by:
 
 While 3) is happening you cannot use your mouse or keyboard. The data rate is low so be careful and plan what you want to upload.
 
+## Usage Example
+
+[Usage Example](https://www.youtube.com/watch?v=PPhtlonrrC8)
 
 
 ## Install Pre-Requisites
