@@ -1,5 +1,19 @@
 # Overview
 
+Use this if you have the need to upload a file to RDP where perhaps copy/paste and local disks cannot be used.
+
+Disclaimer: *Only use this on services where you are legally allowed to do so. Doing otherwise risks your liberty.*
+
+This works by:
+
+ 1. Creating a zip of the file you want to upload (may save some space for some files)
+ 2. Base64 encoding that file.
+ 3. Typing the Base64 string programatically.
+
+While 3) is happening you cannot use your mouse or keyboard. The data rate is low so be careful and plan what you want to upload.
+
+
+
 ## Install Pre-Requisites
 
 We need "pyautogui" which has an installation guide for various platforms here:
@@ -29,6 +43,7 @@ pip install playsound
 ```
 
 ## Install rdpupload
+Pretty simple here clone the repo:
 
 ```bash
 git clone https://github.com/cornerpirate/rdpupload.git
