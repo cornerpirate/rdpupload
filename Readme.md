@@ -4,6 +4,10 @@ Use this if you have the need to upload a file to RDP where perhaps copy/paste a
 
 Disclaimer: *Only use this on services where you are legally allowed to do so. Doing otherwise risks your liberty.*
 
+For more information about this check out my blog on it:
+
+[https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/](https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/)
+
 This works by:
 
  1. Creating a zip of the file you want to upload (may save some space for some files)
