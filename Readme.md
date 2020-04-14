@@ -1,6 +1,8 @@
 # Overview
 
-Use this if you have the need to upload a file to RDP where perhaps copy/paste and local disks cannot be used.
+Use this if you have the need to upload a file to RDP where perhaps copy/paste and local disks cannot be used. 
+
+Additionally this can be used in cloud environments such as Azure within Bastion hosts where copy/paste can be particularly tricky at times.
 
 Disclaimer: *Only use this on services where you are legally allowed to do so. Doing otherwise risks your liberty.*
 
@@ -8,7 +10,7 @@ For more information about this check out my blog on it:
 
 [https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/](https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/)
 
-This works by:
+It works by:
 
  1. Creating a zip of the file you want to upload (may save some space for some files)
  2. Base64 encoding that file.
@@ -16,44 +18,38 @@ This works by:
 
 While 3) is happening you cannot use your mouse or keyboard. The data rate is low so be careful and plan what you want to upload.
 
-## Usage Example
-
-[![Usage Example](https://i.ytimg.com/vi/PPhtlonrrC8/0.jpg)](https://www.youtube.com/watch?v=PPhtlonrrC8)
-
-
-## Install Pre-Requisites
-
-We need "pyautogui" which has an installation guide for various platforms here:
-
-http://pyautogui.readthedocs.io/en/latest/install.html
-
-For Kali Linux, the required commands were:
-
-```bash
-pip install python3-xlib
-apt-get install scrot python3-dev
-pip install pyautogui
-```
-
-Any problems installing pyautogui then refer to their documentation for your OS. My script is only tested on Kali Linux, your mileage and support will vary from there.
-
-Additionally we need this for the progress bar:
-
-```bash
-pip install tqdm
-```
-
-Finally, this for sound:
-
-```bash
-pip install playsound
-```
-
 ## Install rdpupload
-Pretty simple here clone the repo:
+Pretty simple here clone the repo using this command, or download and extract the zip:
 
 ```bash
 git clone https://github.com/cornerpirate/rdpupload.git
 ```
 
-As you already have the pre-requisites you are now all set to get this done.
+Install pre-requisites using the requirements.txt file as shown:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+I have now converted to Python3 and provided it as "rdpupload3.py" which you can run like this:
+
+```bash
+python rdpupload3.py -d 3 nc.exe
+```
+
+This has been tested on a Windows environment and worked fine with the exception of the sounds playing when "-s" was specified. This is not a core feature so I am not losing sleep. Sounds played fine on Kali for me.
+
+The legacy version remains as "rdpupload.py" which works with Python 2 and uses the same running syntax.
+
+Additioanlly, I have added "typestring.py" which is Python 3. For use where you just want to reliably paste a string into a restricted environment. Specify the string within double quotes as the argument to the script like this:
+
+```bash
+python typestring "I want to type this in here"
+```
+
+This has a hardcoded 3 second delay before the string is typed so you have 3 seconds to put the mouse pointer within the correct part of your remote session.
+
+Note: If your string includes double quotes or shell restrictive characters then be sure to escape them appropriately.
+
