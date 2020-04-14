@@ -8,7 +8,7 @@ Disclaimer: *Only use this on services where you are legally allowed to do so. D
 
 For more information about this check out my blog on it:
 
-[https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/](https://cornerpirate.com/2017/11/14/uploading-files-to-rdp-when-that-is-restricted/)
+[https://cornerpirate.com/2020/04/14/uploading-file-when-all-else-fails//](https://cornerpirate.com/2020/04/14/uploading-file-when-all-else-fails/)
 
 It works by:
 
