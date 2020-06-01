@@ -1,0 +1,25 @@
+<script>
+// https://github.com/rndme/download
+!function(e,t){"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?module.exports=t():e.download=t()}(this,function(){return function e(t,n,o){var a,r,i,d=window,l="application/octet-stream",s=o||l,c=t,f=!n&&!o&&c,u=document,p=u.createElement("a"),b=function(e){return String(e)},m=d.Blob||d.MozBlob||d.WebKitBlob||b,w=n||"download";if((m=m.call?m.bind(d):Blob,"true"===String(this)&&(s=(c=[c,s])[0],c=c[1]),f&&f.length<2048)&&(w=f.split("/").pop().split("?")[0],p.href=f,-1!==p.href.indexOf(f)))return(i=new XMLHttpRequest).open("GET",f,!0),i.responseType="blob",i.onload=function(t){e(t.target.response,w,l)},i.send(),i;if(/^data\:[\w+\-]+\/[\w+\-]+[,;]/.test(c))return navigator.msSaveBlob?navigator.msSaveBlob(function(e){var t=e.split(/[:;,]/),n=t[1],o=("base64"==t[2]?atob:decodeURIComponent)(t.pop()),a=o.length,r=0,i=new Uint8Array(a);for(;r<a;++r)i[r]=o.charCodeAt(r);return new m([i],{type:n})}(c),w):h(c);function h(e,t){if("download"in p)return p.href=e,p.setAttribute("download",w),p.className="download-js-link",p.innerHTML="downloading...",u.body.appendChild(p),setTimeout(function(){p.click(),u.body.removeChild(p),!0===t&&setTimeout(function(){d.URL.revokeObjectURL(p.href)},250)},66),!0;if(/(Version)\/(\d+)\.(\d+)(?:\.(\d+))?.*Safari\//.test(navigator.userAgent))return e=e.replace(/^data:([\w\/\-\+]+)/,l),window.open(e)||confirm("Displaying New Document\n\nUse Save As... to download, then click back to return to this page.")&&(location.href=e),!0;var n=u.createElement("iframe");u.body.appendChild(n),t||(e="data:"+e.replace(/^data:([\w\/\-\+]+)/,l)),n.src=e,setTimeout(function(){u.body.removeChild(n)},333)}if(a=c instanceof m?c:new m([c],{type:s}),navigator.msSaveBlob)return navigator.msSaveBlob(a,w);if(d.URL)h(d.URL.createObjectURL(a),!0);else{if("string"==typeof a||a.constructor===b)try{return h("data:"+s+";base64,"+d.btoa(a))}catch(e){return h("data:"+s+","+encodeURIComponent(a))}(r=new FileReader).onload=function(e){h(this.result)},r.readAsDataURL(a)}return!0}});
+</script>
+<script>
+function saveIt() {
+	try{
+		var encoded = document.getElementById('b64').value;	
+		var filename =  Math.random().toString(36).substring(2, 15) + ".zip" ;
+		
+		var str= atob(encoded),	arr= new Uint8Array(str.length);
+		str.split("").forEach(function(a,b){
+			arr[b]=a.charCodeAt();
+		});
+		download( arr, filename, "text/plain" );
+		
+	}catch(err){
+		document.getElementById('err').innerHTML='<b>Error: ' + err + '</b>';
+	}
+}
+</script>
+<textarea id="b64"></textarea>
+<input type="submit" onclick="saveIt()">
+<br/><br/>
+<div id="err"></div>
