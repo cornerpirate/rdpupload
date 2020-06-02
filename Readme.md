@@ -36,14 +36,14 @@ pip install -r requirements.txt
 I have now converted to Python3 and provided it as "rdpupload3.py" which you can run like this:
 
 ```bash
-python rdpupload3.py -d 3 nc.exe
+python rdpupload3.py -d 3 -f nc.exe
 ```
 
 This has been tested on a Windows environment and worked fine with the exception of the sounds playing when "-s" was specified. This is not a core feature so I am not losing sleep. Sounds played fine on Kali for me.
 
-The legacy version remains as "rdpupload.py" which works with Python 2 and uses the same running syntax.
+The legacy version remains as "rdpupload.py" which works with Python 2. It uses a different syntax and does not support "-c" where the catcher can be uploaded.
 
-Additioanlly, I have added "typestring.py" which is Python 3. For use where you just want to reliably paste a string into a restricted environment. Specify the string within double quotes as the argument to the script like this:
+Additionally, I have added "typestring.py" which is Python 3. For use where you just want to reliably paste a string into a restricted environment. Specify the string within double quotes as the argument to the script like this:
 
 ```bash
 python typestring "I want to type this in here"
@@ -53,3 +53,10 @@ This has a hardcoded 3 second delay before the string is typed so you have 3 sec
 
 Note: If your string includes double quotes or shell restrictive characters then be sure to escape them appropriately.
 
+This also supports file upload without applying any encoding:
+
+```bash
+python typestring <filename>
+```
+
+When you are uploading text files instead of binaries this will work as well as rdpupload3.py. Under the hood this is how the rdpupload3.py "-c" | "--catcher" functionality works. It just calls ```python typestring.py browser.html``` 
